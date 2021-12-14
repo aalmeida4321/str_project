@@ -20879,9 +20879,9 @@ uint8_t ADCC_GetConversionStageStatus(void);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 218 "mcc_generated_files/pin_manager.h"
+# 242 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 230 "mcc_generated_files/pin_manager.h"
+# 254 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -20923,19 +20923,213 @@ extern void cputs(const char *);
 # 1 "mcc_generated_files/interrupt_manager.h" 1
 # 55 "mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/memory.h" 1
-# 99 "mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "mcc_generated_files/memory.h"
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "mcc_generated_files/memory.h"
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "mcc_generated_files/memory.h"
-void FLASH_EraseBlock(uint16_t startAddr);
-# 222 "mcc_generated_files/memory.h"
-void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
-# 248 "mcc_generated_files/memory.h"
-uint8_t DATAEE_ReadByte(uint16_t bAdd);
+# 1 "mcc_generated_files/i2c1_master.h" 1
+# 54 "mcc_generated_files/i2c1_master.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 54 "mcc_generated_files/i2c1_master.h" 2
+
+
+
+
+typedef enum {
+    I2C1_NOERR,
+    I2C1_BUSY,
+    I2C1_FAIL
+
+
+} i2c1_error_t;
+
+typedef enum
+{
+    I2C1_STOP=1,
+    I2C1_RESTART_READ,
+    I2C1_RESTART_WRITE,
+    I2C1_CONTINUE,
+    I2C1_RESET_LINK
+} i2c1_operations_t;
+
+typedef uint8_t i2c1_address_t;
+typedef i2c1_operations_t (*i2c1_callback_t)(void *funPtr);
+
+
+i2c1_operations_t I2C1_CallbackReturnStop(void *funPtr);
+i2c1_operations_t I2C1_CallbackReturnReset(void *funPtr);
+i2c1_operations_t I2C1_CallbackRestartWrite(void *funPtr);
+i2c1_operations_t I2C1_CallbackRestartRead(void *funPtr);
+
+
+
+
+
+
+void I2C1_Initialize(void);
+# 101 "mcc_generated_files/i2c1_master.h"
+i2c1_error_t I2C1_Open(i2c1_address_t address);
+# 111 "mcc_generated_files/i2c1_master.h"
+i2c1_error_t I2C1_Close(void);
+# 123 "mcc_generated_files/i2c1_master.h"
+i2c1_error_t I2C1_MasterOperation(_Bool read);
+
+
+
+
+i2c1_error_t I2C1_MasterWrite(void);
+
+
+
+
+i2c1_error_t I2C1_MasterRead(void);
+# 142 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetTimeout(uint8_t timeOut);
+# 152 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetBuffer(void *buffer, size_t bufferSize);
+# 164 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetDataCompleteCallback(i2c1_callback_t cb, void *ptr);
+# 174 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetWriteCollisionCallback(i2c1_callback_t cb, void *ptr);
+# 184 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetAddressNackCallback(i2c1_callback_t cb, void *ptr);
+# 194 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetDataNackCallback(i2c1_callback_t cb, void *ptr);
+# 204 "mcc_generated_files/i2c1_master.h"
+void I2C1_SetTimeoutCallback(i2c1_callback_t cb, void *ptr);
 # 56 "mcc_generated_files/mcc.h" 2
 
 
@@ -20967,11 +21161,26 @@ extern void (*TMR1_InterruptHandler)(void);
 # 439 "mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
 # 58 "mcc_generated_files/mcc.h" 2
-# 73 "mcc_generated_files/mcc.h"
+
+# 1 "mcc_generated_files/memory.h" 1
+# 99 "mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint16_t flashAddr);
+# 128 "mcc_generated_files/memory.h"
+void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+# 164 "mcc_generated_files/memory.h"
+int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+# 189 "mcc_generated_files/memory.h"
+void FLASH_EraseBlock(uint16_t startAddr);
+# 222 "mcc_generated_files/memory.h"
+void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+# 248 "mcc_generated_files/memory.h"
+uint8_t DATAEE_ReadByte(uint16_t bAdd);
+# 59 "mcc_generated_files/mcc.h" 2
+# 74 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "mcc_generated_files/mcc.h"
+# 87 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 99 "mcc_generated_files/mcc.h"
+# 100 "mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
 # 53 "mcc_generated_files/adcc.c" 2
 # 63 "mcc_generated_files/adcc.c"

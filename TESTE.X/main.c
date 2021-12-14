@@ -42,6 +42,9 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "I2C/i2c.h"
+#include "LCD/lcd.h"
+#include "stdio.h"
 
 /*
                          Main application
@@ -52,8 +55,7 @@
 #define LUM_LVL_23   0x2FD
 
 void S1(void){
-    //TODO
-    if(IO_RA6_GetValue()==HIGH){
+    if(IO_RB4_GetValue()==LOW && IO_RA6_GetValue()==HIGH){
         IO_RA6_SetLow();
     }
 }
@@ -72,8 +74,39 @@ void timerInterrupt(void){
     }
 }
 
+unsigned char readTC74 (void)
+{
+	unsigned char value;
+do{
+	IdleI2C();
+	StartI2C(); IdleI2C();
+    
+	WriteI2C(0x9a | 0x00); IdleI2C();
+	WriteI2C(0x01); IdleI2C();
+	RestartI2C(); IdleI2C();
+	WriteI2C(0x9a | 0x01); IdleI2C();
+	value = ReadI2C(); IdleI2C();
+	NotAckI2C(); IdleI2C();
+	StopI2C();
+} while (!(value & 0x40));
+
+	IdleI2C();
+	StartI2C(); IdleI2C();
+	WriteI2C(0x9a | 0x00); IdleI2C();
+	WriteI2C(0x00); IdleI2C();
+	RestartI2C(); IdleI2C();
+	WriteI2C(0x9a | 0x01); IdleI2C();
+	value = ReadI2C(); IdleI2C();
+	NotAckI2C(); IdleI2C();
+	StopI2C();
+
+	return value;
+}
+
 void main(void)
 {
+    unsigned char c;
+    char buf[17];
     // initialize the device
     SYSTEM_Initialize();
 
@@ -96,11 +129,29 @@ void main(void)
     
     IO_RA6_SetHigh();
      
+    OpenI2C();
+    //I2C_SCL = 1;
+    //I2C_SDA = 1;
+    //WPUC3 = 1;
+    //WPUC4 = 1;
+    LCDinit();
+    
     while (1)
     {   
-        if(IO_RB4_GetValue()==HIGH){
-            S1();
-        }
+        S1();
+        
+        c = readTC74();
+        LCDcmd(0x80);       //first line, first column
+        while (LCDbusy());
+        LCDstr("Temp");
+        LCDpos(0,8);
+        while (LCDbusy());
+        LCDstr("STR-RTS");
+        LCDcmd(0xc0);       // second line, first column
+        sprintf(buf, "%02d C", c);
+        while (LCDbusy());
+        LCDstr(buf);
+        __delay_ms(2000);
     }
 }
 /**

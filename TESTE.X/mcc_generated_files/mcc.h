@@ -53,9 +53,10 @@
 #include <stdbool.h>
 #include <conio.h>
 #include "interrupt_manager.h"
-#include "memory.h"
+#include "i2c1_master.h"
 #include "adcc.h"
 #include "tmr1.h"
+#include "memory.h"
 
 
 
