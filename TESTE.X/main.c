@@ -53,6 +53,8 @@
 #define LUM_LVL_01   0xFF
 #define LUM_LVL_12   0x1FE
 #define LUM_LVL_23   0x2FD
+#define START_WRITE_RING_BUFFER_ADDR 0xFF //TODO
+#define START_READ_RING_BUFFER_ADDR 0xFF //TODO
 
 void S1(void){
     if(IO_RB4_GetValue()==LOW && IO_RA6_GetValue()==HIGH){
@@ -103,10 +105,32 @@ do{
 	return value;
 }
 
+uint8_t readEPROM(uint16_t dataAddr){
+    uint16_t start = START_READ_RING_BUFFER_ADDR; 
+
+    return 0x55;
+}
+
+void writeEPROM(uint16_t dataAddr,uint8_t data){
+    uint16_t start = START_WRITE_RING_BUFFER_ADDR; 
+
+    return 0x55;
+}
+
+uint8_t readRingBuffer(uint16_t dataAddr){
+    return 0x55;
+}
+
+void writeRingBuffer(uint16_t dataAddr,uint8_t data){
+    return 0x55;
+}
+
 void main(void)
 {
     unsigned char c;
     char buf[17];
+    uint16_t writeRingBufferAddr = START_WRITE_RING_BUFFER_ADDR; 
+    uint16_t readRingBufferAddr = START_READ_RING_BUFFER_ADDR; 
     // initialize the device
     SYSTEM_Initialize();
 
@@ -135,6 +159,14 @@ void main(void)
     //WPUC3 = 1;
     //WPUC4 = 1;
     LCDinit();
+    
+    uint16_t dataeeAddr = 0xF010;
+    uint8_t dataeeData = 0x55;
+    DATAEE_WriteByte(dataeeAddr,dataeeData);
+    
+    NOP();
+    uint8_t FILIPE = DATAEE_ReadByte(dataeeAddr);
+    NOP();
     
     while (1)
     {   

@@ -1,0 +1,79 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"28 mcc_generated_files/EEPROM2_app.h
+[; ;mcc_generated_files/EEPROM2_app.h: 28: void EEPROM2_WriteByte (uint8_t byteData, uint32_t byteAddr);
+[v _EEPROM2_WriteByte `(v ~T0 @X0 0 ef2`uc`ul ]
+"32
+[; ;mcc_generated_files/EEPROM2_app.h: 32: uint8_t EEPROM2_WritePoll(void);
+[v _EEPROM2_WritePoll `(uc ~T0 @X0 0 ef ]
+"29
+[; ;mcc_generated_files/EEPROM2_app.h: 29: uint8_t EEPROM2_ReadByte (uint32_t address);
+[v _EEPROM2_ReadByte `(uc ~T0 @X0 0 ef1`ul ]
+"34 mcc_generated_files/delay.h
+[; ;mcc_generated_files/delay.h: 34: void DELAY_milliseconds(uint16_t milliseconds);
+[v _DELAY_milliseconds `(v ~T0 @X0 0 ef1`us ]
+"30 mcc_generated_files/EEPROM2_app.h
+[; ;mcc_generated_files/EEPROM2_app.h: 30: void EEPROM2_WriteBlock(uint8_t *writeBuffer, uint8_t buflen, uint32_t startAddr);
+[v _EEPROM2_WriteBlock `(v ~T0 @X0 0 ef3`*uc`uc`ul ]
+"31
+[; ;mcc_generated_files/EEPROM2_app.h: 31: void EEPROM2_ReadBlock(uint8_t *readBuffer, uint8_t buflen, uint32_t startAddr);
+[v _EEPROM2_ReadBlock `(v ~T0 @X0 0 ef3`*uc`uc`ul ]
+"27 mcc_generated_files/EEPROM2_example.c
+[; ;mcc_generated_files/EEPROM2_example.c: 27: uint8_t writeBuffer[] = {0x1A, 0x2A, 0x4A, 0x8A};
+[v _writeBuffer `uc ~T0 @X0 -> 4 `i e ]
+[i _writeBuffer
+:U ..
+-> -> 26 `i `uc
+-> -> 42 `i `uc
+-> -> 74 `i `uc
+-> -> 138 `i `uc
+..
+]
+"28
+[; ;mcc_generated_files/EEPROM2_example.c: 28: uint8_t readBuffer[10];
+[v _readBuffer `uc ~T0 @X0 -> 10 `i e ]
+"29
+[; ;mcc_generated_files/EEPROM2_example.c: 29: uint8_t addressBuffer[] = {0xAB,0x00,0x10};
+[v _addressBuffer `uc ~T0 @X0 -> 3 `i e ]
+[i _addressBuffer
+:U ..
+-> -> 171 `i `uc
+-> -> 0 `i `uc
+-> -> 16 `i `uc
+..
+]
+"30
+[; ;mcc_generated_files/EEPROM2_example.c: 30: uint8_t readByte;
+[v _readByte `uc ~T0 @X0 1 e ]
+"32
+[; ;mcc_generated_files/EEPROM2_example.c: 32: void EEPROM2_example(void)
+[v _EEPROM2_example `(v ~T0 @X0 1 ef ]
+"33
+[; ;mcc_generated_files/EEPROM2_example.c: 33: {
+{
+[e :U _EEPROM2_example ]
+[f ]
+"35
+[; ;mcc_generated_files/EEPROM2_example.c: 35:     EEPROM2_WriteByte(0xA5,0x10AB01);
+[e ( _EEPROM2_WriteByte (2 , -> -> 165 `i `uc -> -> 1092353 `l `ul ]
+"38
+[; ;mcc_generated_files/EEPROM2_example.c: 38:     EEPROM2_WritePoll();
+[e ( _EEPROM2_WritePoll ..  ]
+"41
+[; ;mcc_generated_files/EEPROM2_example.c: 41:     readByte = EEPROM2_ReadByte(0x10AB01);
+[e = _readByte ( _EEPROM2_ReadByte (1 -> -> 1092353 `l `ul ]
+"44
+[; ;mcc_generated_files/EEPROM2_example.c: 44:     DELAY_milliseconds(10);
+[e ( _DELAY_milliseconds (1 -> -> 10 `i `us ]
+"47
+[; ;mcc_generated_files/EEPROM2_example.c: 47:     EEPROM2_WriteBlock(writeBuffer,4,0x10AB02);
+[e ( _EEPROM2_WriteBlock (3 , , &U _writeBuffer -> -> 4 `i `uc -> -> 1092354 `l `ul ]
+"50
+[; ;mcc_generated_files/EEPROM2_example.c: 50:     EEPROM2_WritePoll();
+[e ( _EEPROM2_WritePoll ..  ]
+"53
+[; ;mcc_generated_files/EEPROM2_example.c: 53:     EEPROM2_ReadBlock(readBuffer,4,0x10AB02);
+[e ( _EEPROM2_ReadBlock (3 , , &U _readBuffer -> -> 4 `i `uc -> -> 1092354 `l `ul ]
+"54
+[; ;mcc_generated_files/EEPROM2_example.c: 54: }
+[e :UE 1 ]
+}
