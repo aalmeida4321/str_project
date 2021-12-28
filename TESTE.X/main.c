@@ -45,7 +45,7 @@
 #include "I2C/i2c.h"
 #include "LCD/lcd.h"
 #include "stdio.h"
-#include "EPROM.h"
+#include "EPROMlib.h"
 
 /*
                          Main application
@@ -111,7 +111,7 @@ uint8_t readRingBuffer(uint16_t dataAddr){
     return 0x55;
 }
 
-void writeRingBuffer(uint16_t dataAddr,uint8_t data){
+uint8_t writeRingBuffer(uint16_t dataAddr,uint8_t data){
     return 0x55;
 }
 
