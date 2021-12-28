@@ -148,30 +148,22 @@ void main(void)
     //I2C_SDA = 1;
     //WPUC3 = 1;
     //WPUC4 = 1;
-    LCDinit();
-    
-    uint16_t dataeeAddr = 0xF010;
-    uint8_t dataeeData = 0x55;
-    DATAEE_WriteByte(dataeeAddr,dataeeData);
-    
-    NOP();
-    uint8_t FILIPE = DATAEE_ReadByte(dataeeAddr);
-    NOP();
+    //LCDinit();
 
     initializeEPROM();
 
-    storeEPROMBuild(11,59,17,25,2,OPER_MAX_TEMP);
+    storeEPROMBuild(0x55,0x50,0x45,0x40,0x35,OPER_MAX_TEMP);
     
     uint8_t hours,minutes,seconds,temperature,luminosity;
     uint8_t magic_word,NREG,NR,WI,RI,PMON,TALA,ALAT,ALAL,ALAF,CLKH,CLKM,checksum;
-
+    uint8_t correct_EPROM;
     while (1)
     {   
         S1();
         parseEPROMReading(&hours,&minutes,&seconds,&temperature,&luminosity,OPER_MAX_TEMP);
-        parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
+        correct_EPROM = parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
         
-        c = readTC74();
+        /*c = readTC74();
         LCDcmd(0x80);       //first line, first column
         while (LCDbusy());
         LCDstr("Temp");
@@ -181,7 +173,7 @@ void main(void)
         LCDcmd(0xc0);       // second line, first column
         sprintf(buf, "%02d C", c);
         while (LCDbusy());
-        LCDstr(buf);
+        LCDstr(buf);*/
         __delay_ms(2000);
     }
 }

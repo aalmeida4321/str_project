@@ -208,6 +208,8 @@ uint8_t DATAEE_ReadByte(uint16_t bAdd)
     NOP();  // NOPs may be required for latency at high frequencies
     NOP();
 
+    NVMCON1|=0x80;
+    
     return (NVMDATL);
 }
 
