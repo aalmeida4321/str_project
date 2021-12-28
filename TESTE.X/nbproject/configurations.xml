@@ -58,10 +58,11 @@
       <itemPath>Makefile</itemPath>
       <itemPath>TESTE.mc3</itemPath>
     </logicalFolder>
+    <itemPath>EPROM.c</itemPath>
+    <itemPath>EPROM.h</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>LCD</Elem>
-    <Elem>I2C</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
