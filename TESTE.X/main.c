@@ -45,16 +45,18 @@
 #include "I2C/i2c.h"
 #include "LCD/lcd.h"
 #include "stdio.h"
+#include "EPROM.h"
 
 /*
                          Main application
- */
+*/
 
-#define LUM_LVL_01   0xFF
-#define LUM_LVL_12   0x1FE
-#define LUM_LVL_23   0x2FD
+#define LUM_LVL_01  0xFF
+#define LUM_LVL_12  0x1FE
+#define LUM_LVL_23  0x2FD
 #define START_WRITE_RING_BUFFER_ADDR 0xFF //TODO
 #define START_READ_RING_BUFFER_ADDR 0xFF //TODO
+
 
 void S1(void){
     if(IO_RB4_GetValue()==LOW && IO_RA6_GetValue()==HIGH){
@@ -103,18 +105,6 @@ do{
 	StopI2C();
 
 	return value;
-}
-
-uint8_t readEPROM(uint16_t dataAddr){
-    uint16_t start = START_READ_RING_BUFFER_ADDR; 
-
-    return 0x55;
-}
-
-void writeEPROM(uint16_t dataAddr,uint8_t data){
-    uint16_t start = START_WRITE_RING_BUFFER_ADDR; 
-
-    return 0x55;
 }
 
 uint8_t readRingBuffer(uint16_t dataAddr){
@@ -167,10 +157,19 @@ void main(void)
     NOP();
     uint8_t FILIPE = DATAEE_ReadByte(dataeeAddr);
     NOP();
+
+    initializeEPROM();
+
+    storeEPROMBuild(11,59,17,25,2,OPER_MAX_TEMP);
     
+    uint8_t readBuffer_EI[13];
+    uint8_t readBuffer_OPER[5];
+
     while (1)
     {   
         S1();
+        readBuffer_EI=fetchEPROMInitialization();
+        readBuffer_OPER=fetchEPROM(OPER_MAX_TEMP);
         
         c = readTC74();
         LCDcmd(0x80);       //first line, first column
