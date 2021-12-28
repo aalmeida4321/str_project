@@ -169,7 +169,7 @@ void main(void)
     {   
         S1();
         parseEPROMReading(&hours,&minutes,&seconds,&temperature,&luminosity,OPER_MAX_TEMP);
-        parseEPROMInitialization(magic_word,NREG,NR,WI,RI,PMON,TALA,ALAT,ALAL,ALAF,CLKH,CLKM,checksum);
+        parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
         
         c = readTC74();
         LCDcmd(0x80);       //first line, first column

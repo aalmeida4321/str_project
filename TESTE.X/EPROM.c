@@ -46,29 +46,26 @@ void storeEPROMBuild(uint8_t hours,uint8_t minutes,uint8_t seconds,uint8_t tempe
 
 void fetchEPROM(uint8_t operation,uint8_t* readBuffer){
     uint32_t dataAddr;
-    readBuffer = (uint8_t*)malloc(5*sizeof(uint8_t));
     dataAddr = operADDR(operation);
     EEPROM2_ReadBlock(readBuffer,5,dataAddr);
 }
 
 void fetchEPROMInitialization(uint8_t* readBuffer){
-    readBuffer = (uint8_t*)malloc(13*sizeof(uint8_t));
     EEPROM2_ReadBlock(readBuffer,13,INITIALIZATION_ADDRESS);
 }
 
 void parseEPROMReading(uint8_t* hours,uint8_t* minutes,uint8_t* seconds,uint8_t* temperature,uint8_t* luminosity,uint8_t operation){
-    uint8_t* readBuffer;
+    uint8_t readBuffer[5];
     fetchEPROM(operation,readBuffer);
     *hours = readBuffer[0];
     *minutes = readBuffer[1];
     *seconds = readBuffer[2];
     *temperature = readBuffer[3];
     *luminosity = readBuffer[4];
-    free(readBuffer);
 }
 
 void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum){
-    uint8_t* readBuffer;
+    uint8_t readBuffer[13];
     fetchEPROMInitialization(readBuffer);
     *magic_word = readBuffer[0];
     *NREG = readBuffer[1];
@@ -83,5 +80,4 @@ void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint
     *CLKH = readBuffer[10];
     *CLKM = readBuffer[11];
     *checksum = readBuffer[12];
-    free(readBuffer);
 }
