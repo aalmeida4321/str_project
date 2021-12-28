@@ -20,6 +20,7 @@
     },
     "peacock.remoteColor": "#007fff",
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "i2c.h": "c"
     }
 }
