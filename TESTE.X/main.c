@@ -162,14 +162,14 @@ void main(void)
 
     storeEPROMBuild(11,59,17,25,2,OPER_MAX_TEMP);
     
-    uint8_t readBuffer_EI[13];
-    uint8_t readBuffer_OPER[5];
+    uint8_t hours,minutes,seconds,temperature,luminosity;
+    uint8_t magic_word,NREG,NR,WI,RI,PMON,TALA,ALAT,ALAL,ALAF,CLKH,CLKM,checksum;
 
     while (1)
     {   
         S1();
-        readBuffer_EI=fetchEPROMInitialization();
-        readBuffer_OPER=fetchEPROM(OPER_MAX_TEMP);
+        parseEPROMReading(&hours,&minutes,&seconds,&temperature,&luminosity,OPER_MAX_TEMP);
+        parseEPROMInitialization(magic_word,NREG,NR,WI,RI,PMON,TALA,ALAT,ALAL,ALAF,CLKH,CLKM,checksum);
         
         c = readTC74();
         LCDcmd(0x80);       //first line, first column
