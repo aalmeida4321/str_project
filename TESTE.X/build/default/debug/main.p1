@@ -174,8 +174,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./EPROMlib.h: 29: void parseEPROMReading(uint8_t* hours,uint8_t* minutes,uint8_t* seconds,uint8_t* temperature,uint8_t* luminosity,uint8_t operation);
 [v _parseEPROMReading `(v ~T0 @X0 0 ef6`*uc`*uc`*uc`*uc`*uc`uc ]
 "30
-[; ;./EPROMlib.h: 30: void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum);
-[v _parseEPROMInitialization `(v ~T0 @X0 0 ef13`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc ]
+[; ;./EPROMlib.h: 30: uint8_t parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum);
+[v _parseEPROMInitialization `(uc ~T0 @X0 0 ef13`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc ]
 [v F183 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16F1xxxx_DFP/1.7.146/xc8\pic\include\builtins.h
 [v __delay `JF183 ~T0 @X0 0 e ]
@@ -2251,6 +2251,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _CLKH `uc ~T0 @X0 1 a ]
 [v _CLKM `uc ~T0 @X0 1 a ]
 [v _checksum `uc ~T0 @X0 1 a ]
+"159
+[; ;main.c: 159:     uint8_t correct_EPROM;
+[v _correct_EPROM `uc ~T0 @X0 1 a ]
 "160
 [; ;main.c: 160:     while (1)
 [e :U 1751 ]
@@ -2264,8 +2267,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 163:         parseEPROMReading(&hours,&minutes,&seconds,&temperature,&luminosity,101);
 [e ( _parseEPROMReading (4 , , , , , &U _hours &U _minutes &U _seconds &U _temperature &U _luminosity -> -> 101 `i `uc ]
 "164
-[; ;main.c: 164:         parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
-[e ( _parseEPROMInitialization (4 , , , , , , , , , , , , &U _magic_word &U _NREG &U _NR &U _WI &U _RI &U _PMON &U _TALA &U _ALAT &U _ALAL &U _ALAF &U _CLKH &U _CLKM &U _checksum ]
+[; ;main.c: 164:         correct_EPROM = parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
+[e = _correct_EPROM ( _parseEPROMInitialization (4 , , , , , , , , , , , , &U _magic_word &U _NREG &U _NR &U _WI &U _RI &U _PMON &U _TALA &U _ALAT &U _ALAL &U _ALAF &U _CLKH &U _CLKM &U _checksum ]
 "177
 [; ;main.c: 177:         _delay((unsigned long)((2000)*(1000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]

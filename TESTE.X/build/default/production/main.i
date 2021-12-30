@@ -21221,7 +21221,7 @@ uint16_t operADDR(uint8_t operation);
 void initializeEPROM();
 void storeEPROMBuild(uint8_t hours,uint8_t minutes,uint8_t seconds,uint8_t temperature,uint8_t luminosity,uint8_t operation);
 void parseEPROMReading(uint8_t* hours,uint8_t* minutes,uint8_t* seconds,uint8_t* temperature,uint8_t* luminosity,uint8_t operation);
-void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum);
+uint8_t parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum);
 # 48 "main.c" 2
 # 61 "main.c"
 void S1(void){
@@ -21322,12 +21322,12 @@ void main(void)
 
     uint8_t hours,minutes,seconds,temperature,luminosity;
     uint8_t magic_word,NREG,NR,WI,RI,PMON,TALA,ALAT,ALAL,ALAF,CLKH,CLKM,checksum;
-
+    uint8_t correct_EPROM;
     while (1)
     {
         S1();
         parseEPROMReading(&hours,&minutes,&seconds,&temperature,&luminosity,101);
-        parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
+        correct_EPROM = parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
 # 177 "main.c"
         _delay((unsigned long)((2000)*(1000000/4000.0)));
     }

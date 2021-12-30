@@ -20814,7 +20814,7 @@ uint16_t operADDR(uint8_t operation);
 void initializeEPROM();
 void storeEPROMBuild(uint8_t hours,uint8_t minutes,uint8_t seconds,uint8_t temperature,uint8_t luminosity,uint8_t operation);
 void parseEPROMReading(uint8_t* hours,uint8_t* minutes,uint8_t* seconds,uint8_t* temperature,uint8_t* luminosity,uint8_t operation);
-void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum);
+uint8_t parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum);
 # 4 "EPROMlib.c" 2
 # 1 "./mcc_generated_files/memory.h" 1
 # 54 "./mcc_generated_files/memory.h"
@@ -20981,15 +20981,15 @@ uint16_t operADDR(uint8_t operation){
             break;
 
         case 101:
-            dataAddr = 0x7028;
+            dataAddr = 0x7005;
             break;
 
         case 102:
-            dataAddr = 0x7050;
+            dataAddr = 0x700A;
             break;
 
         case 103:
-            dataAddr = 0x7078;
+            dataAddr = 0x700F;
             break;
 
         default:
@@ -21002,18 +21002,18 @@ uint16_t operADDR(uint8_t operation){
 
 void initializeEPROM(){
     DATAEE_WriteByte(0x7099,(uint8_t) 0xAA);
-    DATAEE_WriteByte(0x7099 + 8, 0xA);
-    DATAEE_WriteByte(0x7099 + 10, 0x0);
-    DATAEE_WriteByte(0x7099 + 18, 0x0);
-    DATAEE_WriteByte(0x7099 + 20, 0x0);
-    DATAEE_WriteByte(0x7099 + 28, 0x5);
-    DATAEE_WriteByte(0x7099 + 30, 0x3);
-    DATAEE_WriteByte(0x7099 + 38, 0x19);
-    DATAEE_WriteByte(0x7099 + 40, 0x2);
-    DATAEE_WriteByte(0x7099 + 48, 0x0);
-    DATAEE_WriteByte(0x7099 + 50, 0xC);
-    DATAEE_WriteByte(0x7099 + 58, 0x0);
-    DATAEE_WriteByte(0x7099 + 60, 0XE3);
+    DATAEE_WriteByte(0x7099 + 1,(uint8_t) 0xA);
+    DATAEE_WriteByte(0x7099 + 2,(uint8_t) 0x0);
+    DATAEE_WriteByte(0x7099 + 3,(uint8_t) 0x0);
+    DATAEE_WriteByte(0x7099 + 4,(uint8_t) 0x0);
+    DATAEE_WriteByte(0x7099 + 5,(uint8_t) 0x5);
+    DATAEE_WriteByte(0x7099 + 6,(uint8_t) 0x3);
+    DATAEE_WriteByte(0x7099 + 7,(uint8_t) 0x19);
+    DATAEE_WriteByte(0x7099 + 8,(uint8_t) 0x2);
+    DATAEE_WriteByte(0x7099 + 9,(uint8_t) 0x0);
+    DATAEE_WriteByte(0x7099 + 10,(uint8_t) 0xC);
+    DATAEE_WriteByte(0x7099 + 11,(uint8_t) 0x0);
+    DATAEE_WriteByte(0x7099 + 12,(uint8_t) 0xE3);
 }
 
 void storeEPROMBuild(uint8_t hours,uint8_t minutes,uint8_t seconds,uint8_t temperature,uint8_t luminosity,uint8_t operation){
@@ -21021,34 +21021,39 @@ void storeEPROMBuild(uint8_t hours,uint8_t minutes,uint8_t seconds,uint8_t tempe
 
     dataAddr = operADDR(operation);
     DATAEE_WriteByte(dataAddr, hours);
-    DATAEE_WriteByte(dataAddr + 8, minutes);
-    DATAEE_WriteByte(dataAddr + 10, seconds);
-    DATAEE_WriteByte(dataAddr + 18, temperature);
-    DATAEE_WriteByte(dataAddr + 20, luminosity);
+    DATAEE_WriteByte(dataAddr + 1, minutes);
+    DATAEE_WriteByte(dataAddr + 2, seconds);
+    DATAEE_WriteByte(dataAddr + 3, temperature);
+    DATAEE_WriteByte(dataAddr + 4, luminosity);
 }
 
 void parseEPROMReading(uint8_t* hours,uint8_t* minutes,uint8_t* seconds,uint8_t* temperature,uint8_t* luminosity,uint8_t operation){
     uint16_t dataAddr;
     dataAddr = operADDR(operation);
     *hours = DATAEE_ReadByte(dataAddr);
-    *minutes = DATAEE_ReadByte(dataAddr + 8);
-    *seconds = DATAEE_ReadByte(dataAddr + 10);
-    *temperature = DATAEE_ReadByte(dataAddr + 18);
-    *luminosity = DATAEE_ReadByte(dataAddr + 20);
+    *minutes = DATAEE_ReadByte(dataAddr + 1);
+    *seconds = DATAEE_ReadByte(dataAddr + 2);
+    *temperature = DATAEE_ReadByte(dataAddr + 3);
+    *luminosity = DATAEE_ReadByte(dataAddr + 4);
 }
 
-void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum){
+uint8_t parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum){
     *magic_word = DATAEE_ReadByte(0x7099);
-    *NREG = DATAEE_ReadByte(0x7099 + 8);
-    *NR = DATAEE_ReadByte(0x7099 + 10);
-    *WI = DATAEE_ReadByte(0x7099 + 18);
-    *RI = DATAEE_ReadByte(0x7099 + 20);
-    *PMON = DATAEE_ReadByte(0x7099 + 28);
-    *TALA = DATAEE_ReadByte(0x7099 + 30);
-    *ALAT = DATAEE_ReadByte(0x7099 + 38);
-    *ALAL = DATAEE_ReadByte(0x7099 + 40);
-    *ALAF = DATAEE_ReadByte(0x7099 + 48);
-    *CLKH = DATAEE_ReadByte(0x7099 + 50);
-    *CLKM = DATAEE_ReadByte(0x7099 + 58);
-    *checksum = DATAEE_ReadByte(0x7099 + 60);
+    *NREG = DATAEE_ReadByte(0x7099 + 1);
+    *NR = DATAEE_ReadByte(0x7099 + 2);
+    *WI = DATAEE_ReadByte(0x7099 + 3);
+    *RI = DATAEE_ReadByte(0x7099 + 4);
+    *PMON = DATAEE_ReadByte(0x7099 + 5);
+    *TALA = DATAEE_ReadByte(0x7099 + 6);
+    *ALAT = DATAEE_ReadByte(0x7099 + 7);
+    *ALAL = DATAEE_ReadByte(0x7099 + 8);
+    *ALAF = DATAEE_ReadByte(0x7099 + 9);
+    *CLKH = DATAEE_ReadByte(0x7099 + 10);
+    *CLKM = DATAEE_ReadByte(0x7099 + 11);
+    *checksum = DATAEE_ReadByte(0x7099 + 12);
+
+    if ((*magic_word + *NREG + *NR + *WI + *RI + *PMON + *TALA + *ALAT + *ALAL + *ALAF + *CLKH + *CLKM) != *checksum){
+        return 0x1;
+    }
+    return 0x0;
 }

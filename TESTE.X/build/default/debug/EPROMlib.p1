@@ -1670,8 +1670,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 14:         case 101:
 [e :U 1626 ]
 "15
-[; ;EPROMlib.c: 15:             dataAddr = 0x7028;
-[e = _dataAddr -> -> 28712 `i `us ]
+[; ;EPROMlib.c: 15:             dataAddr = 0x7005;
+[e = _dataAddr -> -> 28677 `i `us ]
 "16
 [; ;EPROMlib.c: 16:             break;
 [e $U 1623  ]
@@ -1679,8 +1679,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 18:         case 102:
 [e :U 1627 ]
 "19
-[; ;EPROMlib.c: 19:             dataAddr = 0x7050;
-[e = _dataAddr -> -> 28752 `i `us ]
+[; ;EPROMlib.c: 19:             dataAddr = 0x700A;
+[e = _dataAddr -> -> 28682 `i `us ]
 "20
 [; ;EPROMlib.c: 20:             break;
 [e $U 1623  ]
@@ -1688,8 +1688,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 22:         case 103:
 [e :U 1628 ]
 "23
-[; ;EPROMlib.c: 23:             dataAddr = 0x7078;
-[e = _dataAddr -> -> 28792 `i `us ]
+[; ;EPROMlib.c: 23:             dataAddr = 0x700F;
+[e = _dataAddr -> -> 28687 `i `us ]
 "24
 [; ;EPROMlib.c: 24:             break;
 [e $U 1623  ]
@@ -1731,41 +1731,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 35:     DATAEE_WriteByte(0x7099,(uint8_t) 0xAA);
 [e ( _DATAEE_WriteByte (2 , -> -> 28825 `i `us -> -> 170 `i `uc ]
 "36
-[; ;EPROMlib.c: 36:     DATAEE_WriteByte(0x7099 + 8,(uint8_t) 0xA);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 8 `i `us -> -> 10 `i `uc ]
+[; ;EPROMlib.c: 36:     DATAEE_WriteByte(0x7099 + 1,(uint8_t) 0xA);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 1 `i `us -> -> 10 `i `uc ]
 "37
-[; ;EPROMlib.c: 37:     DATAEE_WriteByte(0x7099 + 10,(uint8_t) 0x0);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 10 `i `us -> -> 0 `i `uc ]
+[; ;EPROMlib.c: 37:     DATAEE_WriteByte(0x7099 + 2,(uint8_t) 0x0);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 2 `i `us -> -> 0 `i `uc ]
 "38
-[; ;EPROMlib.c: 38:     DATAEE_WriteByte(0x7099 + 18,(uint8_t) 0x0);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 18 `i `us -> -> 0 `i `uc ]
+[; ;EPROMlib.c: 38:     DATAEE_WriteByte(0x7099 + 3,(uint8_t) 0x0);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 3 `i `us -> -> 0 `i `uc ]
 "39
-[; ;EPROMlib.c: 39:     DATAEE_WriteByte(0x7099 + 20,(uint8_t) 0x0);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 20 `i `us -> -> 0 `i `uc ]
+[; ;EPROMlib.c: 39:     DATAEE_WriteByte(0x7099 + 4,(uint8_t) 0x0);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 4 `i `us -> -> 0 `i `uc ]
 "40
-[; ;EPROMlib.c: 40:     DATAEE_WriteByte(0x7099 + 28,(uint8_t) 0x5);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 28 `i `us -> -> 5 `i `uc ]
+[; ;EPROMlib.c: 40:     DATAEE_WriteByte(0x7099 + 5,(uint8_t) 0x5);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 5 `i `us -> -> 5 `i `uc ]
 "41
-[; ;EPROMlib.c: 41:     DATAEE_WriteByte(0x7099 + 30,(uint8_t) 0x3);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 30 `i `us -> -> 3 `i `uc ]
+[; ;EPROMlib.c: 41:     DATAEE_WriteByte(0x7099 + 6,(uint8_t) 0x3);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 6 `i `us -> -> 3 `i `uc ]
 "42
-[; ;EPROMlib.c: 42:     DATAEE_WriteByte(0x7099 + 38,(uint8_t) 0x19);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 38 `i `us -> -> 25 `i `uc ]
+[; ;EPROMlib.c: 42:     DATAEE_WriteByte(0x7099 + 7,(uint8_t) 0x19);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 7 `i `us -> -> 25 `i `uc ]
 "43
-[; ;EPROMlib.c: 43:     DATAEE_WriteByte(0x7099 + 40,(uint8_t) 0x2);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 40 `i `us -> -> 2 `i `uc ]
+[; ;EPROMlib.c: 43:     DATAEE_WriteByte(0x7099 + 8,(uint8_t) 0x2);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 8 `i `us -> -> 2 `i `uc ]
 "44
-[; ;EPROMlib.c: 44:     DATAEE_WriteByte(0x7099 + 48,(uint8_t) 0x0);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 48 `i `us -> -> 0 `i `uc ]
+[; ;EPROMlib.c: 44:     DATAEE_WriteByte(0x7099 + 9,(uint8_t) 0x0);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 9 `i `us -> -> 0 `i `uc ]
 "45
-[; ;EPROMlib.c: 45:     DATAEE_WriteByte(0x7099 + 50,(uint8_t) 0xC);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 50 `i `us -> -> 12 `i `uc ]
+[; ;EPROMlib.c: 45:     DATAEE_WriteByte(0x7099 + 10,(uint8_t) 0xC);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 10 `i `us -> -> 12 `i `uc ]
 "46
-[; ;EPROMlib.c: 46:     DATAEE_WriteByte(0x7099 + 58,(uint8_t) 0x0);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 58 `i `us -> -> 0 `i `uc ]
+[; ;EPROMlib.c: 46:     DATAEE_WriteByte(0x7099 + 11,(uint8_t) 0x0);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 11 `i `us -> -> 0 `i `uc ]
 "47
-[; ;EPROMlib.c: 47:     DATAEE_WriteByte(0x7099 + 60,(uint8_t) 0xE3);
-[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 60 `i `us -> -> 227 `i `uc ]
+[; ;EPROMlib.c: 47:     DATAEE_WriteByte(0x7099 + 12,(uint8_t) 0xE3);
+[e ( _DATAEE_WriteByte (2 , -> + -> 28825 `i -> 12 `i `us -> -> 227 `i `uc ]
 "48
 [; ;EPROMlib.c: 48: }
 [e :UE 1630 ]
@@ -1792,17 +1792,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 54:     DATAEE_WriteByte(dataAddr, hours);
 [e ( _DATAEE_WriteByte (2 , _dataAddr _hours ]
 "55
-[; ;EPROMlib.c: 55:     DATAEE_WriteByte(dataAddr + 8, minutes);
-[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 8 `i `ui `us _minutes ]
+[; ;EPROMlib.c: 55:     DATAEE_WriteByte(dataAddr + 1, minutes);
+[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 1 `i `ui `us _minutes ]
 "56
-[; ;EPROMlib.c: 56:     DATAEE_WriteByte(dataAddr + 10, seconds);
-[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 10 `i `ui `us _seconds ]
+[; ;EPROMlib.c: 56:     DATAEE_WriteByte(dataAddr + 2, seconds);
+[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 2 `i `ui `us _seconds ]
 "57
-[; ;EPROMlib.c: 57:     DATAEE_WriteByte(dataAddr + 18, temperature);
-[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 18 `i `ui `us _temperature ]
+[; ;EPROMlib.c: 57:     DATAEE_WriteByte(dataAddr + 3, temperature);
+[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 3 `i `ui `us _temperature ]
 "58
-[; ;EPROMlib.c: 58:     DATAEE_WriteByte(dataAddr + 20, luminosity);
-[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 20 `i `ui `us _luminosity ]
+[; ;EPROMlib.c: 58:     DATAEE_WriteByte(dataAddr + 4, luminosity);
+[e ( _DATAEE_WriteByte (2 , -> + -> _dataAddr `ui -> -> 4 `i `ui `us _luminosity ]
 "59
 [; ;EPROMlib.c: 59: }
 [e :UE 1631 ]
@@ -1829,24 +1829,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 64:     *hours = DATAEE_ReadByte(dataAddr);
 [e = *U _hours ( _DATAEE_ReadByte (1 _dataAddr ]
 "65
-[; ;EPROMlib.c: 65:     *minutes = DATAEE_ReadByte(dataAddr + 8);
-[e = *U _minutes ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 8 `i `ui `us ]
+[; ;EPROMlib.c: 65:     *minutes = DATAEE_ReadByte(dataAddr + 1);
+[e = *U _minutes ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 1 `i `ui `us ]
 "66
-[; ;EPROMlib.c: 66:     *seconds = DATAEE_ReadByte(dataAddr + 10);
-[e = *U _seconds ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 10 `i `ui `us ]
+[; ;EPROMlib.c: 66:     *seconds = DATAEE_ReadByte(dataAddr + 2);
+[e = *U _seconds ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 2 `i `ui `us ]
 "67
-[; ;EPROMlib.c: 67:     *temperature = DATAEE_ReadByte(dataAddr + 18);
-[e = *U _temperature ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 18 `i `ui `us ]
+[; ;EPROMlib.c: 67:     *temperature = DATAEE_ReadByte(dataAddr + 3);
+[e = *U _temperature ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 3 `i `ui `us ]
 "68
-[; ;EPROMlib.c: 68:     *luminosity = DATAEE_ReadByte(dataAddr + 20);
-[e = *U _luminosity ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 20 `i `ui `us ]
+[; ;EPROMlib.c: 68:     *luminosity = DATAEE_ReadByte(dataAddr + 4);
+[e = *U _luminosity ( _DATAEE_ReadByte (1 -> + -> _dataAddr `ui -> -> 4 `i `ui `us ]
 "69
 [; ;EPROMlib.c: 69: }
 [e :UE 1632 ]
 }
 "71
-[; ;EPROMlib.c: 71: void parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum){
-[v _parseEPROMInitialization `(v ~T0 @X0 1 ef13`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc ]
+[; ;EPROMlib.c: 71: uint8_t parseEPROMInitialization(uint8_t* magic_word,uint8_t* NREG,uint8_t* NR,uint8_t* WI,uint8_t* RI,uint8_t* PMON,uint8_t* TALA,uint8_t* ALAT,uint8_t* ALAL,uint8_t* ALAF,uint8_t* CLKH,uint8_t* CLKM,uint8_t* checksum){
+[v _parseEPROMInitialization `(uc ~T0 @X0 1 ef13`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc`*uc ]
 {
 [e :U _parseEPROMInitialization ]
 [v _magic_word `*uc ~T0 @X0 1 r1 ]
@@ -1867,42 +1867,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EPROMlib.c: 72:     *magic_word = DATAEE_ReadByte(0x7099);
 [e = *U _magic_word ( _DATAEE_ReadByte (1 -> -> 28825 `i `us ]
 "73
-[; ;EPROMlib.c: 73:     *NREG = DATAEE_ReadByte(0x7099 + 8);
-[e = *U _NREG ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 8 `i `us ]
+[; ;EPROMlib.c: 73:     *NREG = DATAEE_ReadByte(0x7099 + 1);
+[e = *U _NREG ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 1 `i `us ]
 "74
-[; ;EPROMlib.c: 74:     *NR = DATAEE_ReadByte(0x7099 + 10);
-[e = *U _NR ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 10 `i `us ]
+[; ;EPROMlib.c: 74:     *NR = DATAEE_ReadByte(0x7099 + 2);
+[e = *U _NR ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 2 `i `us ]
 "75
-[; ;EPROMlib.c: 75:     *WI = DATAEE_ReadByte(0x7099 + 18);
-[e = *U _WI ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 18 `i `us ]
+[; ;EPROMlib.c: 75:     *WI = DATAEE_ReadByte(0x7099 + 3);
+[e = *U _WI ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 3 `i `us ]
 "76
-[; ;EPROMlib.c: 76:     *RI = DATAEE_ReadByte(0x7099 + 20);
-[e = *U _RI ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 20 `i `us ]
+[; ;EPROMlib.c: 76:     *RI = DATAEE_ReadByte(0x7099 + 4);
+[e = *U _RI ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 4 `i `us ]
 "77
-[; ;EPROMlib.c: 77:     *PMON = DATAEE_ReadByte(0x7099 + 28);
-[e = *U _PMON ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 28 `i `us ]
+[; ;EPROMlib.c: 77:     *PMON = DATAEE_ReadByte(0x7099 + 5);
+[e = *U _PMON ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 5 `i `us ]
 "78
-[; ;EPROMlib.c: 78:     *TALA = DATAEE_ReadByte(0x7099 + 30);
-[e = *U _TALA ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 30 `i `us ]
+[; ;EPROMlib.c: 78:     *TALA = DATAEE_ReadByte(0x7099 + 6);
+[e = *U _TALA ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 6 `i `us ]
 "79
-[; ;EPROMlib.c: 79:     *ALAT = DATAEE_ReadByte(0x7099 + 38);
-[e = *U _ALAT ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 38 `i `us ]
+[; ;EPROMlib.c: 79:     *ALAT = DATAEE_ReadByte(0x7099 + 7);
+[e = *U _ALAT ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 7 `i `us ]
 "80
-[; ;EPROMlib.c: 80:     *ALAL = DATAEE_ReadByte(0x7099 + 40);
-[e = *U _ALAL ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 40 `i `us ]
+[; ;EPROMlib.c: 80:     *ALAL = DATAEE_ReadByte(0x7099 + 8);
+[e = *U _ALAL ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 8 `i `us ]
 "81
-[; ;EPROMlib.c: 81:     *ALAF = DATAEE_ReadByte(0x7099 + 48);
-[e = *U _ALAF ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 48 `i `us ]
+[; ;EPROMlib.c: 81:     *ALAF = DATAEE_ReadByte(0x7099 + 9);
+[e = *U _ALAF ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 9 `i `us ]
 "82
-[; ;EPROMlib.c: 82:     *CLKH = DATAEE_ReadByte(0x7099 + 50);
-[e = *U _CLKH ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 50 `i `us ]
+[; ;EPROMlib.c: 82:     *CLKH = DATAEE_ReadByte(0x7099 + 10);
+[e = *U _CLKH ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 10 `i `us ]
 "83
-[; ;EPROMlib.c: 83:     *CLKM = DATAEE_ReadByte(0x7099 + 58);
-[e = *U _CLKM ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 58 `i `us ]
+[; ;EPROMlib.c: 83:     *CLKM = DATAEE_ReadByte(0x7099 + 11);
+[e = *U _CLKM ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 11 `i `us ]
 "84
-[; ;EPROMlib.c: 84:     *checksum = DATAEE_ReadByte(0x7099 + 60);
-[e = *U _checksum ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 60 `i `us ]
-"85
-[; ;EPROMlib.c: 85: }
+[; ;EPROMlib.c: 84:     *checksum = DATAEE_ReadByte(0x7099 + 12);
+[e = *U _checksum ( _DATAEE_ReadByte (1 -> + -> 28825 `i -> 12 `i `us ]
+"86
+[; ;EPROMlib.c: 86:     if ((*magic_word + *NREG + *NR + *WI + *RI + *PMON + *TALA + *ALAT + *ALAL + *ALAF + *CLKH + *CLKM) != *checksum){
+[e $ ! != + + + + + + + + + + + -> *U _magic_word `i -> *U _NREG `i -> *U _NR `i -> *U _WI `i -> *U _RI `i -> *U _PMON `i -> *U _TALA `i -> *U _ALAT `i -> *U _ALAL `i -> *U _ALAF `i -> *U _CLKH `i -> *U _CLKM `i -> *U _checksum `i 1634  ]
+{
+"87
+[; ;EPROMlib.c: 87:         return 0x1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 1633  ]
+"88
+[; ;EPROMlib.c: 88:     }
+}
+[e :U 1634 ]
+"89
+[; ;EPROMlib.c: 89:     return 0x0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1633  ]
+"90
+[; ;EPROMlib.c: 90: }
 [e :UE 1633 ]
 }
