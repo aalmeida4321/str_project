@@ -158,7 +158,7 @@ do{
 	return value;
 }
 
-//iniciar os 4 registos com máximos e minimos
+//iniciar os 4 registos com mÃ¡ximos e minimos
 //not sure com que valores inicializar os registos
 void initializeREG(){
     
@@ -173,9 +173,9 @@ void initializeREG(){
 }
 
 //retorna o writeRingBufferAddr atualizado para a proxima escrita
-//ordem de escrita é: horas -> minutos -> segundos -> temperatura -> luminosidade -> horas -> (...)
+//ordem de escrita Ã©: horas -> minutos -> segundos -> temperatura -> luminosidade -> horas -> (...)
 //writeRingBufferAddr = writeRingBuffer(...)
-uint16_t writeRingBuffer(uint16_t writeRingBufferAddr,uint8_t hours, uint8_t minutes, uint8_t seconds, uint8_t temperature, uint8_t luminosity){
+uint16_t writeRingBuffer(uint16_t writeRingBufferAddr, uint8_t hours, uint8_t minutes, uint8_t seconds, uint8_t temperature, uint8_t luminosity){
     
     
     uint8_t prev_temperature;
@@ -210,7 +210,7 @@ uint16_t writeRingBuffer(uint16_t writeRingBufferAddr,uint8_t hours, uint8_t min
         
     }else{
         
-        writeRingBufferAddr =  writeRingBufferAddr* + 5;
+        writeRingBufferAddr =  writeRingBufferAddr + 5;
     }
     return writeRingBufferAddr;
 }
@@ -268,6 +268,8 @@ void main(void)
         S1();
         parseEPROMReading(&hours,&minutes,&seconds,&temperature,&luminosity,OPER_MAX_TEMP);
         correct_EPROM = parseEPROMInitialization(&magic_word,&NREG,&NR,&WI,&RI,&PMON,&TALA,&ALAT,&ALAL,&ALAF,&CLKH,&CLKM,&checksum);
+	    
+	//writeRingBufferAddr = writeRingBuffer(writeRingBufferAddr,hours,minutes,seconds,temperature,luminosity);
         
         /*c = readTC74();
         LCDcmd(0x80);       //first line, first column
